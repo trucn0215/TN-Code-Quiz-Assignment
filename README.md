@@ -2,6 +2,7 @@
 
 ## Task
 The task of this assignment is creating a combination of multiple-choice questions and interactive coding challenges. The quiz will tell CORRECT or WRONG answer once user chose an answer. The quiz will have limited time to do the quiz. Time will be count down. Whatever time left will be your score. The higher number of time is the better score.  
+
 At the end of the quiz, you will have to enter your name/initial, and it will save your name/initial and score.
 there are buttons for you to GO BACK or CLEAR HISTORY of your score.
 
