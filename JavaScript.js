@@ -5,29 +5,56 @@ var goBackBtn = document.querySelector("#backBtn")
 var clearBtn = document.querySelector("#clearScoreBtn")
 
 startBtn.addEventListener("click", startQuiz)
-submitBtn.addEventListener("click", submitResult)
-goBackBtn.addEventListener("click", goBack)
-clearBtn.addEventListener("click", clearScore)
+// submitBtn.addEventListener("click", submitResult)
+// goBackBtn.addEventListener("click", goBack)
+// clearBtn.addEventListener("click", clearScore)
+
+var interval;
 
 // Start the quiz
 function startQuiz(){
+    startTimer();
+}
 
+// function renderTime(){
+//     secondsDisplay.textContent = getFormattedSeconds();
+// }
+//console.log(startTimer);
+
+function startTimer(){
+    var totalTime = 10;
+
+    var timeDisplace = document.getElementById("timer");
+
+    interval = setInterval(countDown, 1000);
+
+    function countDown(){
+        if(totalTime >= 0){
+            timeDisplace.innerHTML = "Time Left: " + totalTime + "s";
+            totalTime--;
+        }
+        // else{
+        //     clearInterval(interval)
+        // }
+    }
 }
 
 // Enter, save and Show initial and scores
-function submitResult() {
+// function submitResult() {
 
-}
+// }
 
 // Go back to start the quiz again function
-function goBack(){
+// function goBack(){
 
-}
+// }
 
 // clear Scores function
-function clearScore (){
+// function clearScore (){
 
-}
+// }
+
+
 /*
 # Your Task
 
