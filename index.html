@@ -7,16 +7,19 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div class= "info">
+        <div class= "viewScore">View Highscores</div>
+        <div class= "timeer">Time: </div>
+    </div>
     <header>
         <h1 class = "start">Code Quiz Assignment</h1>
-        <p class="startDescription"></p>
+        <p class="rules">Try to answer the following code-related question within the time limit. Keep in mind that each incorrect answers will penalize your score by 10 seconds! </p>
+        <button class= "startBtn" id= "startBtn">Start Quiz</button>
     </header>
     <div class= "container">
         <div class="buttons">
-            <button class= "startBtn" id= "startBtn">Start Quiz</button>
             <button class= "backBtn" id="backBtn">Go Back</button>
             <button class= "clearScoreBtn" id="clearScoreBtn">Clear your score </button>
-            <button class= "submit" id= "submit">Submit</button>
         </div>
         
         <div class= "quiz">
@@ -31,11 +34,13 @@
                 </div>
             </div>
         </div>
-
+        <h2 class= "done">All Done!</h2>
         <div class= "input">
-            <h2 class= "done">All Done</h2>
-            <p class= "result"></p>
+            <p class= "result">Your score is: </p>
+            <br>
+            <label>Enter Initial: </label>
             <input type="text" name="your-Name" id="your-Name"/>
+            <button class= "submit" id= "submit">Submit</button>
         </div>
     </div>
     <script src="./JavaScript.js"></script>

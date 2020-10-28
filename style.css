@@ -3,3 +3,32 @@
 *::after {
     box-sizing: border-box;
 }
+body {
+    height: 100%;
+    text-align: center;
+    margin: 0 1%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+}
+header {
+    margin: 0 35%;
+}
+
+button {
+    background-color: purple;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+
+p {
+    font-size: 26px;
+}
+
+input{
+    display: inline;
+}
