@@ -1,3 +1,33 @@
+// Varible for Button functioning
+var startBtn = document.querySelector("#startBtn")
+var submitBtn = document.querySelector("#submit")
+var goBackBtn = document.querySelector("#backBtn")
+var clearBtn = document.querySelector("#clearScoreBtn")
+
+startBtn.addEventListener("click", startQuiz)
+submitBtn.addEventListener("click", submitResult)
+goBackBtn.addEventListener("click", goBack)
+clearBtn.addEventListener("click", clearScore)
+
+// Start the quiz
+function startQuiz(){
+
+}
+
+// Enter, save and Show initial and scores
+function submitResult() {
+
+}
+
+// Go back to start the quiz again function
+function goBack(){
+
+}
+
+// clear Scores function
+function clearScore (){
+
+}
 /*
 # Your Task
 
