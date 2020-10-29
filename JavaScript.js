@@ -83,10 +83,11 @@ var submitBtn = document.querySelector("#submit")
 var goBackBtn = document.querySelector("#backBtn")
 var clearBtn = document.querySelector("#clearScoreBtn")
 
+// Click buttons
 startBtn.addEventListener("click", startQuiz)
-// submitBtn.addEventListener("click", submitResult)
-// goBackBtn.addEventListener("click", goBack)
-// clearBtn.addEventListener("click", clearScore)
+submitBtn.addEventListener("click", submitResult)
+goBackBtn.addEventListener("click", goBack)
+clearBtn.addEventListener("click", clearScore)
 
 var interval;
 
@@ -94,10 +95,6 @@ var interval;
 function startQuiz(){
     startTimer();
 }
-
-// function renderTime(){
-//     secondsDisplay.textContent = getFormattedSeconds();
-// }
 
 function startTimer(){
     var totalTime = 75;
@@ -111,26 +108,23 @@ function startTimer(){
             timeDisplace.innerHTML = "Time Left: " + totalTime + "s";
             totalTime--;
         }
-        // else{
-        //     clearInterval(interval)
-        // }
     }
 }
 
-// Enter, save and Show initial and scores
-// function submitResult() {
+//Enter, save and Show initial and scores
+function submitResult() {
 
-// }
+}
 
-// Go back to start the quiz again function
-// function goBack(){
+//Go back to start the quiz again function
+function goBack(){
 
-// }
+}
 
-// clear Scores function
-// function clearScore (){
+//clear Scores function
+function clearScore (){
 
-// }
+}
 
 
 /*
@@ -167,14 +161,43 @@ WHEN I click the `start button`
 
 THEN a timer starts and I am presented with a question  
 ```
-    set starting score = 75
+    * set starting score = 75
 
-    Start the interval to begin the score countdown.
+    * Start the interval to begin the score countdown.
 
-WHEN I answer a question  
-THEN I am presented with another question  
+    * Present the question = create new html elements for my question content
+
+        > Set the #question div's innerHTML = "";
+        > Append a H2 for the question text
+        > Append a new button for each choice
+
+        > var button = document.createElement("button")
+        > button.textContent = questionText
+        > button.setAttribute("data-answer", questionText)
+
+WHEN I answer a question
+
+* When the user clicks one of my answer buttons
+
 WHEN I answer a question incorrectly  
+
+    event.target.matches("button")
+
+    > var clickButtoncontent = event.target.textContent;
+    > var clickButtonValue = event.target.getAttribute("data-answer")
+
+    > the question is correct with clickButtonValue == question[pointer].answer
+
 THEN time is subtracted from the clock  
+
+    > subtract points from my current score
+
+THEN I am presented with another question  
+
+* Increase our pointer by 1
+
+* Present the next question
+
 WHEN all questions are answered or the timer reaches 0  
 THEN the game is over  
 WHEN the game is over  
