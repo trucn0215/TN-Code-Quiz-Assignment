@@ -199,8 +199,25 @@ THEN I am presented with another question
 * Present the next question
 
 WHEN all questions are answered or the timer reaches 0  
-THEN the game is over  
+
+
+
+THEN the game is over
+    > clearInterval ( interval )
+    > Clear out current question or hide the #question element
+    > Show our result form for getting the user's initials
+
 WHEN the game is over  
 THEN I can save my initials and score 
 
+    > ON my initial form "submit"
+    
+        > var highscore = [];
+        > Get the currently saved highscores out localStorage.getItem("highscores").
+        > if(stored high score) highscores = JSON.parse(stored high score)
+        > else highscore = [];
+        > Create a new list
+        > Get the value of the initial's input
+        > Append a object with the initial's and score
+        > Store our score in local storage
 */

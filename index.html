@@ -7,32 +7,32 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class= "info">
-        <div class= "viewScore">View Highscores</div>
-        <div class= "timer" id="timer">Time Left: </div>
+    <div id="info" class= "info">
+        <div id="viewScore" class= "viewScore">View Highscores</div>
+        <div id="timer" class= "timer">Time Left: </div>
     </div>
 
-    <div class="starting">
-        <h1 class = "start">Code Quiz Assignment</h1>
-        <p class="rules">Try to answer the following code-related question within the time limit. Keep in mind that each incorrect answers will penalize your score by 10 seconds! </p>
-        <button class= "startBtn" id= "startBtn">Start Quiz</button>
+    <div id="startingPage" class="startingPage">
+        <h1 id="start" class = "start">Code Quiz Assignment</h1>
+        <p id="rules" class="rules">Try to answer the following code-related question within the time limit. Keep in mind that each incorrect answers will penalize your score by 10 seconds! </p>
+        <button id= "startBtn" class= "startBtn">Start Quiz</button>
     </div>
 
-    <div class= "questions"></div>
+    <div id= "questions" class= "hidden"></div>
 
-    <div class= "enterName">
-        <h2 class= "done">All Done!</h2>
-        <p class= "result">Your score is: </p>
+    <div id= "enterName" class= "hidden">
+        <h2 id="done" class= "done">All Done!</h2>
+        <p id= "result" class= "result">Your score is: </p>
         <br>
         <label>Enter Initial: </label>
         <input type="text" name="your-Name" id="your-Name"/>
-        <button class= "submit" id= "submit">Submit</button>
+        <button id= "submit" class= "submit">Submit</button>
     </div>
 
-    <div id= "afterQuiz">
+    <div id= "afterQuiz" class= "hidden">
         <h2>Highscores</h2>
-        <button class= "backBtn" id="backBtn">Go Back</button>
-        <button class= "clearScoreBtn" id="clearScoreBtn">Clear your score </button>
+        <button id="backBtn" class= "backBtn">Go Back</button>
+        <button id="clearScoreBtn" class= "clearScoreBtn">Clear your score </button>
     </div>
 
     <script src="./JavaScript.js"></script>
