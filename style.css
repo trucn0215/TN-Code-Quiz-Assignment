@@ -20,7 +20,7 @@ body {
     margin-right: 100px;
 }
 
-.starting {
+.startingPage {
     margin: 0 35%;
 }
 
@@ -37,4 +37,8 @@ p {
 
 input{
     display: inline;
+}
+
+.hidden {
+    display: none;
 }

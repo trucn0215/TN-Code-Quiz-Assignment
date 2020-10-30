@@ -78,22 +78,23 @@ const questionsList = [
 ]
 
 // Varible for Button functioning
-var startBtn = document.querySelector("#startBtn")
-var submitBtn = document.querySelector("#submit")
-var goBackBtn = document.querySelector("#backBtn")
-var clearBtn = document.querySelector("#clearScoreBtn")
+var startBtn = document.getElementById("startBtn")
+// var submitBtn = document.querySelector("#submit")
+// var goBackBtn = document.querySelector("#backBtn")
+// var clearBtn = document.querySelector("#clearScoreBtn")
 
 // Click buttons
 startBtn.addEventListener("click", startQuiz)
-submitBtn.addEventListener("click", submitResult)
-goBackBtn.addEventListener("click", goBack)
-clearBtn.addEventListener("click", clearScore)
+// submitBtn.addEventListener("click", submitResult)
+// goBackBtn.addEventListener("click", goBack)
+// clearBtn.addEventListener("click", clearScore)
 
 var interval;
 
 // Start the quiz
 function startQuiz(){
     startTimer();
+   // randomQuestion();
 }
 
 function startTimer(){
@@ -102,29 +103,46 @@ function startTimer(){
     var timeDisplace = document.getElementById("timer");
 
     interval = setInterval(countDown, 1000);
+    // totalTime--;
+    // timeDisplace.innerHTML = "Time Left: " + totalTime + "s";
+
 
     function countDown(){
-        if(totalTime >= 0){
+        // if(totalTime >= 0){
             timeDisplace.innerHTML = "Time Left: " + totalTime + "s";
             totalTime--;
-        }
+        // }
     }
 }
+    
+// function displaceStartPage(){
+
+// }
+
+//randomly run quiz questions
+// function randomQuestion(){
+
+//     for (var i=0; i<questionsList.length; i++) {
+//         // question = Math.floor(Math.random() * questionList.length)
+//     }
+
+
+// }
 
 //Enter, save and Show initial and scores
-function submitResult() {
+// function submitResult() {
 
-}
+// }
 
 //Go back to start the quiz again function
-function goBack(){
+// function goBack(){
 
-}
+// }
 
 //clear Scores function
-function clearScore (){
+// function clearScore (){
 
-}
+// }
 
 
 /*
