@@ -1,81 +1,86 @@
+
 // List of questions
-const questionsList = [
+var questionsList = [
     {
-        "question": "Inside which HTML element do we put the JavaScript?",
-        "answer": ["<javascript>", "<script>", "<js>", "<scripting>"],
-        "correct": 1
+        question: "Inside which HTML element do we put the JavaScript?",
+        answer: ["<javascript>", "<script>", "<js>", "<scripting>"],
+        correctAnswer: 1
     },
     {
-        "question": "How do you write \"Hello World\" in an alert box?",
-        "answer": ["<jaalertBox(\"Hello World\")", "<msg(\"Hello World\");>", "msgBox(\"Hello World\");", "alert(\"Hello World\");  "],
-        "correct": 3
+        question: "How do you write \"Hello World\" in an alert box?",
+        answer: ["<jaalertBox(\"Hello World\")", "<msg(\"Hello World\");>", "msgBox(\"Hello World\");", "alert(\"Hello World\");  "],
+        correctAnswer: 3
     },
     {
-        "question": "How to write an IF statement in JavaScript?",
-        "answer": ["if i == 5 then", "if (i == 5)", "if i = 5", "if i = 5 then"],
-        "correct": 1
+        question: "How to write an IF statement in JavaScript?",
+        answer: ["if i == 5 then", "if (i == 5)", "if i = 5", "if i = 5 then"],
+        correctAnswer: 1
     },
-    {
-        "question": "How to write an IF statement for executing some code if \"i\" is NOT equal to 5?",
-        "answer": ["if i =! 5 then", "if i <> 5", "if (i <> 5)", "if (i != 5)  "],
-        "correct": 3
-    },
-    {
-        "question": "How does a FOR loop start?",
-        "answer": ["for i = 1 to 5", "for (i = 0; i <= 5)", "for (i = 0; i <= 5; i++)", "for (i <= 5; i++)"],
-        "correct": 2
-    },
-    {
-        "question": "How can you add a comment in a JavaScript?",
-        "answer": ["//", "'comment'", "'comment", "<!--comment-->"],
-        "correct": 0
-    },
-    {
-        "question": "How do you round the number 7.25, to the nearest integer?",
-        "answer": ["Math.rnd(7.25)", "round(7.25)", "Math.round(7.25)", "rnd(7.25)"],
-        "correct": 2
-    },
-    {
-        "question": "How do you find the number with the highest value of x and y?",
-        "answer": ["Math.ceil(x, y)", "top(x, y)", "Math.max(x, y)", "ceil(x, y)"],
-        "correct": 2
-    },
-    {
-        "question": "Which event occurs when the user clicks on an HTML element?",
-        "answer": ["onchange", "onmouseover", "onclick", "onmouseclick"],
-        "correct": 2
-    },
-    {
-        "question": "How do you declare a JavaScript variable?",
-        "answer": ["variable carName;", "var carName;", "v carName;", "None of above"],
-        "correct": 1
-    },
-    {
-        "question": "Which operator is used to assign a value to a variable?",
-        "answer": ["*", "=", "x", "=="],
-        "correct": 1
-    },
-    {
-        "question": "How does a WHILE loop start?",
-        "answer": ["while (i <= 10; i++)", "while (i <= 10)", "while i = 1 to 10", "None of above"],
-        "correct": 1
-    },
-    {
-        "question": "How do you call a function named \"myFunction\"?",
-        "answer": ["myFunction()", "call function myFunction()", "call myFunction()", "myFunction{}"],
-        "correct": 0
-    },
-    {
-        "question": "How do you create a function in JavaScript?",
-        "answer": ["function = myFunction()", "function:myFunction()", "function myFunction()", "function.myFunction()"],
-        "correct": 2
-    },
-    {
-        "question": "Where is the correct place to insert a JavaScript?",
-        "answer": ["The <body> section", "Both the <head> section and the <body> section are correct", "The <head> section", "The <main> section"],
-        "correct": 1
-    },
+    // {
+    //     "question": "How to write an IF statement for executing some code if \"i\" is NOT equal to 5?",
+    //     "answer": ["if i =! 5 then", "if i <> 5", "if (i <> 5)", "if (i != 5)  "],
+    //     correctAnswer: 3
+    // },
+    // {
+    //     "question": "How does a FOR loop start?",
+    //     "answer": ["for i = 1 to 5", "for (i = 0; i <= 5)", "for (i = 0; i <= 5; i++)", "for (i <= 5; i++)"],
+    //     correctAnswer: 2
+    // },
+    // {
+    //     "question": "How can you add a comment in a JavaScript?",
+    //     "answer": ["//", "'comment'", "'comment", "<!--comment-->"],
+    //     correctAnswer: 0
+    // },
+    // {
+    //     "question": "How do you round the number 7.25, to the nearest integer?",
+    //     "answer": ["Math.rnd(7.25)", "round(7.25)", "Math.round(7.25)", "rnd(7.25)"],
+    //     correctAnswer: 2
+    // },
+    // {
+    //     "question": "How do you find the number with the highest value of x and y?",
+    //     "answer": ["Math.ceil(x, y)", "top(x, y)", "Math.max(x, y)", "ceil(x, y)"],
+    //     correctAnswer: 2
+    // },
+    // {
+    //     "question": "Which event occurs when the user clicks on an HTML element?",
+    //     "answer": ["onchange", "onmouseover", "onclick", "onmouseclick"],
+    //     correctAnswer: 2
+    // },
+    // {
+    //     "question": "How do you declare a JavaScript variable?",
+    //     "answer": ["variable carName;", "var carName;", "v carName;", "None of above"],
+    //     correctAnswer: 1
+    // },
+    // {
+    //     "question": "Which operator is used to assign a value to a variable?",
+    //     "answer": ["*", "=", "x", "=="],
+    //     correctAnswer: 1
+    // },
+    // {
+    //     "question": "How does a WHILE loop start?",
+    //     "answer": ["while (i <= 10; i++)", "while (i <= 10)", "while i = 1 to 10", "None of above"],
+    //     correctAnswer: 1
+    // },
+    // {
+    //     "question": "How do you call a function named \"myFunction\"?",
+    //     "answer": ["myFunction()", "call function myFunction()", "call myFunction()", "myFunction{}"],
+    //     correctAnswer: 0
+    // },
+    // {
+    //     "question": "How do you create a function in JavaScript?",
+    //     "answer": ["function = myFunction()", "function:myFunction()", "function myFunction()", "function.myFunction()"],
+    //     correctAnswer: 2
+    // },
+    // {
+    //     "question": "Where is the correct place to insert a JavaScript?",
+    //     "answer": ["The <body> section", "Both the <head> section and the <body> section are correct", "The <head> section", "The <main> section"],
+    //     correctAnswer: 1
+    // },
 ]
+
+var startingEl = document.getElementById("startingPage");
+var questionEl = document.getElementById("questions");
+var timeEl = document.getElementById("timer");
 
 // Varible for Button functioning
 var startBtn = document.getElementById("startBtn")
@@ -90,59 +95,67 @@ startBtn.addEventListener("click", startQuiz)
 // clearBtn.addEventListener("click", clearScore)
 
 var interval;
+var totalTime = 5; // set the total time = 75 seconds
 
 // Start the quiz
-function startQuiz(){
-    startTimer();
-   // randomQuestion();
+function startQuiz() {
+    timerCount();
+    // randomQuestion();
+    questionDisplay();
+
+    console.log(questionsList[0]);
 }
 
-function startTimer(){
-    var totalTime = 75;
+function timerCount() {
+    interval = setInterval(countDown, 1000); // time will count down every 1 second
 
-    var timeDisplace = document.getElementById("timer");
-
-    interval = setInterval(countDown, 1000);
-    // totalTime--;
-    // timeDisplace.innerHTML = "Time Left: " + totalTime + "s";
-
-
-    function countDown(){
+    // function to count down the time
+    function countDown() {
         // if(totalTime >= 0){
-            timeDisplace.innerHTML = "Time Left: " + totalTime + "s";
-            totalTime--;
+        totalTime--;
+        timeEl.innerHTML = "Time Left: " + totalTime + " s"; // place the time into html to show on browser
         // }
     }
 }
-    
-// function displaceStartPage(){
 
-// }
+// console.log(questionDisplay)
+function questionDisplay() {
+    var currentQuestion = questionsList[1].question;
+    questionEl.textContent = currentQuestion;
+
+    // questionEl.innerHTML = questionsList[0].question;
+
+    // if (questionEl.style.display === "none") {
+    //     questionEl.style.display = "block";
+    // } else {
+    //     questionEl.style.display = "none";
+    // }
+}
 
 //randomly run quiz questions
-// function randomQuestion(){
-
-//     for (var i=0; i<questionsList.length; i++) {
-//         // question = Math.floor(Math.random() * questionList.length)
-//     }
-
-
+// function randomQuestion() {
+//     var nextRandomQuestion ="";
+//         for (var i=0; i<5; i++) {
+//             nextRandomQuestion += questionsList[Math.floor(Math.random() * questionList.length)];
+//             console.log(nextRandomQuestion);
+//         }
+//         return (nextRandomQuestion);
 // }
 
 //Enter, save and Show initial and scores
-// function submitResult() {
+function submitResult() {
 
-// }
+}
 
 //Go back to start the quiz again function
-// function goBack(){
+function goBack() {
 
-// }
+}
 
 //clear Scores function
-// function clearScore (){
-
-// }
+function clearScore() {
+    clearInterval(interval)
+}
 
 
 /*
@@ -172,12 +185,12 @@ GIVEN I am taking a code quiz
 WHEN I click the `start button`
 ```
     function startGame (){
-        
+
     }
 ```
     `start button` . addEventListener("click", function() {});
 
-THEN a timer starts and I am presented with a question  
+THEN a timer starts and I am presented with a question
 ```
     * set starting score = 75
 
@@ -197,7 +210,7 @@ WHEN I answer a question
 
 * When the user clicks one of my answer buttons
 
-WHEN I answer a question incorrectly  
+WHEN I answer a question incorrectly
 
     event.target.matches("button")
 
@@ -206,17 +219,17 @@ WHEN I answer a question incorrectly
 
     > the question is correct with clickButtonValue == question[pointer].answer
 
-THEN time is subtracted from the clock  
+THEN time is subtracted from the clock
 
     > subtract points from my current score
 
-THEN I am presented with another question  
+THEN I am presented with another question
 
 * Increase our pointer by 1
 
 * Present the next question
 
-WHEN all questions are answered or the timer reaches 0  
+WHEN all questions are answered or the timer reaches 0
 
 
 
@@ -225,11 +238,11 @@ THEN the game is over
     > Clear out current question or hide the #question element
     > Show our result form for getting the user's initials
 
-WHEN the game is over  
-THEN I can save my initials and score 
+WHEN the game is over
+THEN I can save my initials and score
 
     > ON my initial form "submit"
-    
+
         > var highscore = [];
         > Get the currently saved highscores out localStorage.getItem("highscores").
         > if(stored high score) highscores = JSON.parse(stored high score)

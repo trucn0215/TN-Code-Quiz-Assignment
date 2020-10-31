@@ -27,5 +27,7 @@ WHEN the game is over
 THEN I can save my initials and score  
 
 ## Link
+*[Repo link](https://github.com/trucn0215/TN-Code-Quiz-Assignment)
+*[Deployed link](https://trucn0215.github.io/TN-Code-Quiz-Assignment/)
 
 ## Screenshoot

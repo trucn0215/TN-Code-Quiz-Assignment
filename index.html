@@ -7,19 +7,25 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <!--View highscores and timer when start the game-->
     <div id="info" class= "info">
         <div id="viewScore" class= "viewScore">View Highscores</div>
         <div id="timer" class= "timer">Time Left: </div>
     </div>
 
+    <!--quick starting page with description and title-->
     <div id="startingPage" class="startingPage">
         <h1 id="start" class = "start">Code Quiz Assignment</h1>
         <p id="rules" class="rules">Try to answer the following code-related question within the time limit. Keep in mind that each incorrect answers will penalize your score by 10 seconds! </p>
         <button id= "startBtn" class= "startBtn">Start Quiz</button>
     </div>
 
-    <div id= "questions" class= "questions hidden"></div>
+    <!--question elements-->
+    <div id= "questions" ></div>
+    <!--Answer elements-->
+    <div id= "answer"></div>
 
+    <!--Enter name and shout out page after the quiz.-->
     <div id= "enterName" class= "enterName hidden">
         <h2 id="done" class= "done">All Done!</h2>
         <p id= "result" class= "result">Your score is: </p>
@@ -29,6 +35,7 @@
         <button id= "submit" class= "submit">Submit</button>
     </div>
 
+    <!--last page that have "go back" or "Clear score" option-->
     <div id= "afterQuiz" class= "afterQuiz hidden">
         <h2>Highscores</h2>
         <button id="backBtn" class= "backBtn">Go Back</button>
