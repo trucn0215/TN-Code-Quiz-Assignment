@@ -80,6 +80,7 @@ var questionsList = [
 
 var startingEl = document.getElementById("startingPage");
 var questionEl = document.getElementById("questions");
+var answerEl = document.getElementById("answer");
 var timeEl = document.getElementById("timer");
 
 // Varible for Button functioning
@@ -96,6 +97,7 @@ startBtn.addEventListener("click", startQuiz)
 
 var interval;
 var totalTime = 5; // set the total time = 75 seconds
+var currentQuestion = 0;
 
 // Start the quiz
 function startQuiz() {
@@ -103,7 +105,7 @@ function startQuiz() {
     // randomQuestion();
     questionDisplay();
 
-    console.log(questionsList[0]);
+    //console.log(questionList[currentQuestion].answer[i]);
 }
 
 function timerCount() {
@@ -118,10 +120,17 @@ function timerCount() {
     }
 }
 
-// console.log(questionDisplay)
 function questionDisplay() {
-    var currentQuestion = questionsList[1].question;
-    questionEl.textContent = currentQuestion;
+
+    questionEl.textContent = questionsList[currentQuestion].question;
+
+    for (var i = 0; i < questionsList[currentQuestion].answer.length; i++) {
+        var li = document.createElement("li")
+        li.innerHTML = "<button>" + questionsList[currentQuestion].answer[i] + "</button>";
+        li.dataIndex = i;
+        console.log(li.dataIndex);
+        answerEl.append(li);
+    }
 
     // questionEl.innerHTML = questionsList[0].question;
 
