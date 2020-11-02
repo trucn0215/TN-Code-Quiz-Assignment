@@ -8,7 +8,7 @@ var questionsList = [
     },
     {
         question: "How do you write \"Hello World\" in an alert box?",
-        answer: ["<jaalertBox(\"Hello World\")", "<msg(\"Hello World\");>", "msgBox(\"Hello World\");", "alert(\"Hello World\");  "],
+        answer: ["<jaalertBox(\"Hello World\")", "<msg(\"Hello World\");>", "msgBox(\"Hello World\");", "alert(\"Hello World\");"],
         correctAnswer: 3
     },
     {
@@ -78,6 +78,7 @@ var questionsList = [
     // },
 ]
 
+
 var startingEl = document.getElementById("startingPage");
 var questionEl = document.getElementById("questions");
 var answerEl = document.getElementById("answer");
@@ -97,7 +98,7 @@ startBtn.addEventListener("click", startQuiz)
 
 var interval;
 var totalTime = 5; // set the total time = 75 seconds
-var currentQuestion = 0;
+// var currentQuestion = 0;
 
 // Start the quiz
 function startQuiz() {
@@ -105,7 +106,7 @@ function startQuiz() {
     // randomQuestion();
     questionDisplay();
 
-    //console.log(questionList[currentQuestion].answer[i]);
+    console.log(answerEl);
 }
 
 function timerCount() {
@@ -120,25 +121,19 @@ function timerCount() {
     }
 }
 
+var currentQuestion = 0;
 function questionDisplay() {
 
     questionEl.textContent = questionsList[currentQuestion].question;
 
     for (var i = 0; i < questionsList[currentQuestion].answer.length; i++) {
         var li = document.createElement("li")
-        li.innerHTML = "<button>" + questionsList[currentQuestion].answer[i] + "</button>";
-        li.dataIndex = i;
-        console.log(li.dataIndex);
+        li.innerHTML = "<button>" + questionsList[currentQuestion].answer + "</button>";
+        // li.dataIndex = i;
+        // console.log(li.dataIndex);
         answerEl.append(li);
+        // answerEl.textContent = questionsList[currentQuestion].answer;
     }
-
-    // questionEl.innerHTML = questionsList[0].question;
-
-    // if (questionEl.style.display === "none") {
-    //     questionEl.style.display = "block";
-    // } else {
-    //     questionEl.style.display = "none";
-    // }
 }
 
 //randomly run quiz questions
