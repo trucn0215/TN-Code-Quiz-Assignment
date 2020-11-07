@@ -102,8 +102,8 @@ var totalTime = 5; // set the total time = 75 seconds
 
 // Start the quiz
 function startQuiz() {
-    timerCount();
     hiddenAndDisplay();
+    timerCount();
 }
 
 // Countdown the time 
@@ -119,7 +119,8 @@ function timerCount() {
     }
 }
 
-function hiddenAndDisplay(){
+// Hidden and Display pages
+function hiddenAndDisplay() {
     startingEl.setAttribute("class", "hidden"); //hidden the starting Page
 
     document.getElementById("questionBlock").classList.remove("hidden"); // remove hidden class to displace question page.
@@ -127,26 +128,42 @@ function hiddenAndDisplay(){
 }
 
 var currentQuestion = 0;
+
 function questionDisplay() {
 
     questionEl.textContent = questionsList[currentQuestion].question;
 
     for (var i = 0; i < questionsList[currentQuestion].answer.length; i++) {
         var li = document.createElement("button")
+        li.setAttribute("id", "asnwer" + i)
         li.innerHTML = questionsList[currentQuestion].answer[i];
         answerEl.append(li);
-    // console.log(li);
     }
+
+    // if (event.target.matches("button")) {
+    //     console.log("button")
+    //     for (i = 0; i < questionsList.length; i++) {
+    //         currentQuestion = questionsList.length++;
+    //         // console.log(li);
+    //     }
+    // }
+    // else {
+    //     return;
+    // }
 }
 
-//randomly run quiz questions
-// function randomQuestion() {
-//     var nextRandomQuestion ="";
-//         for (var i=0; i<5; i++) {
-//             nextRandomQuestion += questionsList[Math.floor(Math.random() * questionList.length)];
-//             console.log(nextRandomQuestion);
-//         }
-//         return (nextRandomQuestion);
+// randomly run quiz questions
+// function randomQuestion(event) {
+//     // var nextRandomQuestion ="";
+
+//     for (var i = 0; i < questionsList.length; i++) {
+//         if (event.target.matches("button")) {
+//             questionDisplay();
+            // nextRandomQuestion += questionsList[Math.floor(Math.random() * questionList.length)];
+        // }
+
+    // }
+    // return (nextRandomQuestion);
 // }
 
 //Enter, save and Show initial and scores
