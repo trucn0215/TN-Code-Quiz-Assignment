@@ -3,7 +3,7 @@
 var questionsList = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
-        answer: ["<javascript>", "<script>", "<js>", "<scripting>"],
+        answer: ["javascript", "script", "js", "scripting"],
         correctAnswer: 1
     },
     {
@@ -103,12 +103,10 @@ var totalTime = 5; // set the total time = 75 seconds
 // Start the quiz
 function startQuiz() {
     timerCount();
-    // randomQuestion();
-    questionDisplay();
-
-    console.log(answerEl);
+    hiddenAndDisplay();
 }
 
+// Countdown the time 
 function timerCount() {
     interval = setInterval(countDown, 1000); // time will count down every 1 second
 
@@ -121,18 +119,23 @@ function timerCount() {
     }
 }
 
+function hiddenAndDisplay(){
+    startingEl.setAttribute("class", "hidden"); //hidden the starting Page
+
+    document.getElementById("questionBlock").classList.remove("hidden"); // remove hidden class to displace question page.
+    questionDisplay();
+}
+
 var currentQuestion = 0;
 function questionDisplay() {
 
     questionEl.textContent = questionsList[currentQuestion].question;
 
     for (var i = 0; i < questionsList[currentQuestion].answer.length; i++) {
-        var li = document.createElement("li")
-        li.innerHTML = "<button>" + questionsList[currentQuestion].answer + "</button>";
-        // li.dataIndex = i;
-        // console.log(li.dataIndex);
+        var li = document.createElement("button")
+        li.innerHTML = questionsList[currentQuestion].answer[i];
         answerEl.append(li);
-        // answerEl.textContent = questionsList[currentQuestion].answer;
+    // console.log(li);
     }
 }
 
