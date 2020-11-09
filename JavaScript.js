@@ -80,6 +80,7 @@ var questionsList = [
 
 
 var startingEl = document.getElementById("startingPage");
+var questionBlockEl = document.getElementById("questionBlock");
 var questionEl = document.getElementById("questions");
 var answerEl = document.getElementById("answerBlock");
 var timeEl = document.getElementById("timer");
@@ -108,6 +109,7 @@ function startQuiz() {
     hiddenAndDisplay();
     timerCount();
     nextQuestion();
+    // submiting();
 }
 
 // Countdown the time 
@@ -123,6 +125,9 @@ function timerCount() {
 
 // Hidden and Display pages
 function hiddenAndDisplay() {
+
+    console.log(currentQuestion);
+
     startingEl.setAttribute("class", "hidden"); //hidden the starting Page
 
     document.getElementById("questionBlock").classList.remove("hidden"); // remove hidden class to displace question page.
@@ -143,8 +148,28 @@ function questionDisplay() {
         li.innerHTML = questionsList[currentQuestion].answer[i];
         answerEl.append(li);
     }
+    // console.log(currentQuestion);
 }
 
+// check for the answer if it correct or wrong.
+function checkAnswer(answerValue) {
+
+    var tellTheAnswer = document.getElementById("correctAnswer");
+
+    if (answerValue === questionsList[currentQuestion].correctAnswer) {
+        tellTheAnswer.textContent = "Correct"
+    }
+    else {
+        tellTheAnswer.textContent = "Wrong"
+    }
+}
+
+// Clear old question function
+function removeOldQuestion() {
+    while (answerEl.firstChild) {
+        answerEl.removeChild(answerEl.firstChild)
+    }
+}
 
 // run the next question function after click on any answer
 function nextQuestion(event) {
@@ -158,29 +183,22 @@ function nextQuestion(event) {
         currentQuestion++; // add +1 to currentQuestion for next question
         questionDisplay(); // display new question
 
-        console.log(answerValue)
+        // console.log(answerValue)
     }
 }
 
-function checkAnswer(answerValue) {
-    
-    var tellTheAnswer = document.getElementById("correctAnswer");
+ // THIS IS NOT WORKING YET
 
-    if (answerValue === questionsList[currentQuestion].correctAnswer) {
-        tellTheAnswer.textContent = "Correct"
-    }
-    else {
-        tellTheAnswer.textContent = "Wrong"
-    }
-
-}
-
-// Clear old question function
-function removeOldQuestion() {
-    while (answerEl.firstChild) {
-        answerEl.removeChild(answerEl.firstChild)
-    }
-}
+// switch to initial and score pages
+// function submiting(currentQuestion) {
+//     if (currentQuestion <= 2){
+//         questionDisplay();
+//     }
+//     else {
+//         questionBlockEl.setAttribute("class", "hidden");
+//         document.getElementById("enterName").classList.remove("hidden");
+//     }
+// }
 
 //Enter, save and Show initial and scores
 function submitResult() {
