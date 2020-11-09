@@ -137,22 +137,42 @@ function questionDisplay() {
     questionEl.textContent = questionsList[currentQuestion].question;
 
     for (var i = 0; i < questionsList[currentQuestion].answer.length; i++) {
-        var li = document.createElement("button") //creating button element
-        li.setAttribute("class", "answer") // give buttons a class = answer
-        li.setAttribute("data-answer", i) // give buttons a data-answer
+        var li = document.createElement("button"); //creating button element
+        li.setAttribute("class", "answer"); // give buttons a class = answer
+        li.setAttribute("data-answer", i); // give buttons a data-answer
         li.innerHTML = questionsList[currentQuestion].answer[i];
         answerEl.append(li);
     }
 }
 
-function nextQuestion(event) {
 
-    if (event.target.matches("button")) {
+// run the next question function after click on any answer
+function nextQuestion(event) {
+    var targeting = event.target;
+
+    if (targeting.matches("button")) {
         event.preventDefault;
+        var answerValue = parseInt(targeting.getAttribute("data-answer"))
+        checkAnswer(answerValue); // check the answer and tell user it is correct or Wrong
         removeOldQuestion(); // remove the questions and answer function
         currentQuestion++; // add +1 to currentQuestion for next question
         questionDisplay(); // display new question
+
+        console.log(answerValue)
     }
+}
+
+function checkAnswer(answerValue) {
+    
+    var tellTheAnswer = document.getElementById("correctAnswer");
+
+    if (answerValue === questionsList[currentQuestion].correctAnswer) {
+        tellTheAnswer.textContent = "Correct"
+    }
+    else {
+        tellTheAnswer.textContent = "Wrong"
+    }
+
 }
 
 // Clear old question function
