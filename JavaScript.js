@@ -8,7 +8,7 @@ var questionsList = [
     },
     {
         question: "How do you write \"Hello World\" in an alert box?",
-        answer: ["<jaalertBox(\"Hello World\")", "<msg(\"Hello World\");>", "msgBox(\"Hello World\");", "alert(\"Hello World\");"],
+        answer: ["jaalertBox(\"Hello World\")", "msg(\"Hello World\");>", "msgBox(\"Hello World\");", "alert(\"Hello World\");"],
         correctAnswer: 3
     },
     {
@@ -81,8 +81,9 @@ var questionsList = [
 
 var startingEl = document.getElementById("startingPage");
 var questionEl = document.getElementById("questions");
-var answerEl = document.getElementById("answer");
+var answerEl = document.getElementById("answerBlock");
 var timeEl = document.getElementById("timer");
+
 
 // Varible for Button functioning
 var startBtn = document.getElementById("startBtn")
@@ -92,6 +93,8 @@ var startBtn = document.getElementById("startBtn")
 
 // Click buttons
 startBtn.addEventListener("click", startQuiz)
+answerEl.addEventListener("click", nextQuestion);
+
 // submitBtn.addEventListener("click", submitResult)
 // goBackBtn.addEventListener("click", goBack)
 // clearBtn.addEventListener("click", clearScore)
@@ -100,10 +103,11 @@ var interval;
 var totalTime = 5; // set the total time = 75 seconds
 // var currentQuestion = 0;
 
-// Start the quiz
+// Start the quiz after click `start
 function startQuiz() {
     hiddenAndDisplay();
     timerCount();
+    nextQuestion();
 }
 
 // Countdown the time 
@@ -112,10 +116,8 @@ function timerCount() {
 
     // function to count down the time
     function countDown() {
-        // if(totalTime >= 0){
         totalTime--;
         timeEl.innerHTML = "Time Left: " + totalTime + " s"; // place the time into html to show on browser
-        // }
     }
 }
 
@@ -124,47 +126,41 @@ function hiddenAndDisplay() {
     startingEl.setAttribute("class", "hidden"); //hidden the starting Page
 
     document.getElementById("questionBlock").classList.remove("hidden"); // remove hidden class to displace question page.
-    questionDisplay();
+    questionDisplay(); // Then append question and answer button.
 }
 
 var currentQuestion = 0;
 
+// append questions and answer button
 function questionDisplay() {
 
     questionEl.textContent = questionsList[currentQuestion].question;
 
     for (var i = 0; i < questionsList[currentQuestion].answer.length; i++) {
-        var li = document.createElement("button")
-        li.setAttribute("id", "asnwer" + i)
+        var li = document.createElement("button") //creating button element
+        li.setAttribute("class", "answer") // give buttons a class = answer
+        li.setAttribute("data-answer", i) // give buttons a data-answer
         li.innerHTML = questionsList[currentQuestion].answer[i];
         answerEl.append(li);
     }
-
-    // if (event.target.matches("button")) {
-    //     console.log("button")
-    //     for (i = 0; i < questionsList.length; i++) {
-    //         currentQuestion = questionsList.length++;
-    //         // console.log(li);
-    //     }
-    // }
-    // else {
-    //     return;
-    // }
 }
 
-// randomly run quiz questions
-// function randomQuestion(event) {
-//     // var nextRandomQuestion ="";
+function nextQuestion(event) {
 
-//     for (var i = 0; i < questionsList.length; i++) {
-//         if (event.target.matches("button")) {
-//             questionDisplay();
-            // nextRandomQuestion += questionsList[Math.floor(Math.random() * questionList.length)];
-        // }
+    if (event.target.matches("button")) {
+        event.preventDefault;
+        removeOldQuestion(); // remove the questions and answer function
+        currentQuestion++; // add +1 to currentQuestion for next question
+        questionDisplay(); // display new question
+    }
+}
 
-    // }
-    // return (nextRandomQuestion);
-// }
+// Clear old question function
+function removeOldQuestion() {
+    while (answerEl.firstChild) {
+        answerEl.removeChild(answerEl.firstChild)
+    }
+}
 
 //Enter, save and Show initial and scores
 function submitResult() {
