@@ -90,15 +90,14 @@ var timeEl = document.getElementById("timer");
 var startBtn = document.getElementById("startBtn")
 var submitBtn = document.querySelector("#submit")
 // var goBackBtn = document.querySelector("#backBtn")
-// var clearBtn = document.querySelector("#clearScoreBtn")
+var clearBtn = document.querySelector("#clearScoreBtn")
 
 // Click buttons
 startBtn.addEventListener("click", startQuiz)
 answerEl.addEventListener("click", nextQuestion);
-
 submitBtn.addEventListener("click", submitResult)
 // goBackBtn.addEventListener("click", goBack)
-// clearBtn.addEventListener("click", clearScore)
+clearBtn.addEventListener("click", clearScore)
 
 var interval;
 var totalTime = 5; // set the total time = 75 seconds
@@ -233,16 +232,22 @@ function afterQuizResult() {
         let li = document.createElement("li")
         li.textContent = key + ": " + value;
         scoreList.append(li);
+        console.log(li);
     }
 }
 
 //Go back to start the quiz again function
 function goBack() {
-    // questionBlockEl.setAttribute("class", "hidden");
-
+    document.getElementById("afterQuiz").classList.add("hidden");
+    document.getElementById("startingPage").classList.remove("hidden");
+    // startQuiz();
 }
 
 //clear Scores function
 function clearScore() {
-    clearInterval(interval)
+    for (i=0; i < localStorage.length; i++){
+        scoreList.remove();
+        localStorage.clear();
+    }
+
 }
