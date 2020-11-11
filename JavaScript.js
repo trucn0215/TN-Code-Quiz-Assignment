@@ -88,7 +88,7 @@ var timeEl = document.getElementById("timer");
 
 // Varible for Button functioning
 var startBtn = document.getElementById("startBtn")
-// var submitBtn = document.querySelector("#submit")
+var submitBtn = document.querySelector("#submit")
 // var goBackBtn = document.querySelector("#backBtn")
 // var clearBtn = document.querySelector("#clearScoreBtn")
 
@@ -96,7 +96,7 @@ var startBtn = document.getElementById("startBtn")
 startBtn.addEventListener("click", startQuiz)
 answerEl.addEventListener("click", nextQuestion);
 
-// submitBtn.addEventListener("click", submitResult)
+submitBtn.addEventListener("click", submitResult)
 // goBackBtn.addEventListener("click", goBack)
 // clearBtn.addEventListener("click", clearScore)
 
@@ -109,7 +109,6 @@ function startQuiz() {
     hiddenAndDisplay();
     timerCount();
     nextQuestion();
-    // submiting();
 }
 
 // Countdown the time 
@@ -166,6 +165,7 @@ function checkAnswer(answerValue) {
 
 // Clear old question function
 function removeOldQuestion() {
+
     while (answerEl.firstChild) {
         answerEl.removeChild(answerEl.firstChild)
     }
@@ -173,7 +173,9 @@ function removeOldQuestion() {
 
 // run the next question function after click on any answer
 function nextQuestion(event) {
+
     var targeting = event.target;
+    // console.log (event);
 
     if (targeting.matches("button")) {
         event.preventDefault;
@@ -181,32 +183,58 @@ function nextQuestion(event) {
         checkAnswer(answerValue); // check the answer and tell user it is correct or Wrong
         removeOldQuestion(); // remove the questions and answer function
         currentQuestion++; // add +1 to currentQuestion for next question
-        questionDisplay(); // display new question
+        // console.log(currentQuestion);
 
+        submiting(currentQuestion);
         // console.log(answerValue)
+
     }
 }
 
- // THIS IS NOT WORKING YET
-
 // switch to initial and score pages
-// function submiting(currentQuestion) {
-//     if (currentQuestion <= 2){
-//         questionDisplay();
-//     }
-//     else {
-//         questionBlockEl.setAttribute("class", "hidden");
-//         document.getElementById("enterName").classList.remove("hidden");
-//     }
-// }
+function submiting(currentQuestion) {
+    console.log(currentQuestion)
+
+    if (currentQuestion <= 2) {
+
+        questionDisplay();
+    }
+    else {
+
+        questionBlockEl.setAttribute("class", "hidden");
+        document.getElementById("enterName").classList.remove("hidden");
+        var myScore = document.getElementById("result");
+        myScore.innerHTML = "Your score is: " + totalTime;
+        stopTimer();
+    }
+}
+
+function stopTimer() {
+    clearInterval(interval);
+}
 
 //Enter, save and Show initial and scores
 function submitResult() {
+    var nameInitial = document.getElementById("your-Name").value;
+    console.log(nameInitial);
+    localStorage.setItem(nameInitial, totalTime);
+    afterQuizResult();
+}
 
+// 
+function afterQuizResult() {
+    document.getElementById("enterName").classList.add("hidden");
+    document.getElementById("afterQuiz").classList.remove("hidden");
+
+    for (i = 0; i < localStorage.length; i++) {
+        var arry = localStorage.getItem(localStorage.key(i));
+        console.log(arry);
+    }
 }
 
 //Go back to start the quiz again function
 function goBack() {
+    // questionBlockEl.setAttribute("class", "hidden");
 
 }
 
