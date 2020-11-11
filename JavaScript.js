@@ -151,13 +151,14 @@ function questionDisplay() {
 // check for the answer if it correct or wrong.
 function checkAnswer(answerValue) {
 
-    var tellTheAnswer = document.getElementById("correctAnswer");
+    var tellTheAnswer = document.getElementById("showAnswer");
 
     if (answerValue === questionsList[currentQuestion].correctAnswer) {
         tellTheAnswer.textContent = "Correct"
     }
     else {
         tellTheAnswer.textContent = "Wrong"
+        totalTime = totalTime - 10;
     }
 }
 
@@ -194,7 +195,6 @@ function submiting(currentQuestion) {
         questionDisplay();
     }
     else {
-
         questionBlockEl.setAttribute("class", "hidden");
         document.getElementById("enterName").classList.remove("hidden");
         var myScore = document.getElementById("result");

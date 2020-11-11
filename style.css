@@ -20,7 +20,7 @@ body {
     margin-right: 100px;
 }
 
-.startingPage {
+.startingPage, #questionBlock p  {
     margin: 0 35%;
 }
 
@@ -36,9 +36,18 @@ button {
     padding: 0 30em;
 }
 
-p, ul {
+p {
     font-size: 20px;
+}
+
+ul {
     list-style: none;
+}
+
+#questionBlock p{
+    border-top: gray;
+    border-top: solid;
+    border-width: 1px;
 }
 
 input{
