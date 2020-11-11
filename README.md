@@ -30,4 +30,21 @@ THEN I can save my initials and score
 [Repo link](https://github.com/trucn0215/TN-Code-Quiz-Assignment)  
 [Deployed link](https://trucn0215.github.io/TN-Code-Quiz-Assignment/)
 
-## Screenshoot
+## Screenshoot examples
+### List of questions
+![questions](screenshoot/questions.png)
+
+### Start the quiz
+![start the quiz](screenshoot/startQuiz-And-TimeCount.png)
+
+### Display Question
+![Display](screenshoot/questionDisplay.png)
+
+### Next Question after answer a question
+![next](screenshoot/NextQuestion.png)
+
+### Initial and Submitting
+![submitting](screenshoot/Submitting-StopTimer.png)
+
+### Go Back and Clear score
+![BACK AND CLEAR](screenshoot/Back-Clear.png)
