@@ -193,7 +193,7 @@ function nextQuestion(event) {
 
 // switch to initial and score pages
 function submiting(currentQuestion) {
-    console.log(currentQuestion)
+    // console.log(currentQuestion)
 
     if (currentQuestion <= 2) {
 
@@ -216,7 +216,7 @@ function stopTimer() {
 //Enter, save and Show initial and scores
 function submitResult() {
     var nameInitial = document.getElementById("your-Name").value;
-    console.log(nameInitial);
+    // console.log(nameInitial);
     localStorage.setItem(nameInitial, totalTime);
     afterQuizResult();
 }
@@ -226,10 +226,20 @@ function afterQuizResult() {
     document.getElementById("enterName").classList.add("hidden");
     document.getElementById("afterQuiz").classList.remove("hidden");
 
-    for (i = 0; i < localStorage.length; i++) {
-        var arry = localStorage.getItem(localStorage.key(i));
-        console.log(arry);
+    var scoreList = document.getElementById("ssss");
+
+    for (var i = 0, len = localStorage.length; i < len; i++) {
+        var key = localStorage.key(i);
+        var value = localStorage.getItem(localStorage.key(i));
+        let li = document.createElement("li")
+        li.textContent = key + ": " + value;
+        scoreList.append(li);
     }
+
+    // for (i = 0; i < localStorage.length; i++) {
+    //     var arry = localStorage.getItem(localStorage.key(i));
+    //     console.log(arry);
+    // }
 }
 
 //Go back to start the quiz again function
