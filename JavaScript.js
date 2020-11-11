@@ -100,8 +100,8 @@ goBackBtn.addEventListener("click", goBack);
 clearBtn.addEventListener("click", clearScore);
 
 var interval;
-var totalTime = 5; // set the total time = 75 seconds
-// var currentQuestion = 0;
+var totalTime = 120; // set the total time = 75 seconds
+var currentQuestion = 0; // start question at index 0
 
 // Start the quiz after click `start
 function startQuiz() {
@@ -132,7 +132,6 @@ function hiddenAndDisplay() {
     questionDisplay(); // Then append question and answer button.
 }
 
-var currentQuestion = 0;
 
 // append questions and answer button
 function questionDisplay() {
@@ -164,7 +163,6 @@ function checkAnswer(answerValue) {
 
 // Clear old question function
 function removeOldQuestion() {
-
     while (answerEl.firstChild) {
         answerEl.removeChild(answerEl.firstChild)
     }
@@ -186,7 +184,6 @@ function nextQuestion(event) {
 
         submiting(currentQuestion);
         // console.log(answerValue)
-
     }
 }
 
@@ -247,5 +244,4 @@ function clearScore() {
         scoreList.remove();
         localStorage.clear();
     }
-
 }
