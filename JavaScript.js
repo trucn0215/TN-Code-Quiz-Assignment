@@ -194,9 +194,7 @@ function nextQuestion(event) {
 // switch to initial and score pages
 function submiting(currentQuestion) {
     // console.log(currentQuestion)
-
     if (currentQuestion <= 2) {
-
         questionDisplay();
     }
     else {
@@ -209,6 +207,7 @@ function submiting(currentQuestion) {
     }
 }
 
+// Stop the time after the quiz is done
 function stopTimer() {
     clearInterval(interval);
 }
@@ -221,12 +220,12 @@ function submitResult() {
     afterQuizResult();
 }
 
-// 
+// Show score list page after enter initial and submit score
 function afterQuizResult() {
     document.getElementById("enterName").classList.add("hidden");
     document.getElementById("afterQuiz").classList.remove("hidden");
 
-    var scoreList = document.getElementById("ssss");
+    var scoreList = document.getElementById("scoreList");
 
     for (var i = 0, len = localStorage.length; i < len; i++) {
         var key = localStorage.key(i);
@@ -235,11 +234,6 @@ function afterQuizResult() {
         li.textContent = key + ": " + value;
         scoreList.append(li);
     }
-
-    // for (i = 0; i < localStorage.length; i++) {
-    //     var arry = localStorage.getItem(localStorage.key(i));
-    //     console.log(arry);
-    // }
 }
 
 //Go back to start the quiz again function
@@ -252,99 +246,3 @@ function goBack() {
 function clearScore() {
     clearInterval(interval)
 }
-
-
-/*
-# Your Task
-
-* setInterval to do the "timed" functionality
-
-* clearInterval to stop the timeout
-
-* VAR currentScore/timeLeft.
-
-* VAR questions - Array
-
-* Var pointer/index - Current position in the question array
-
-```
-var questions = [
-    {
-        question text
-        List of Question answer
-        Correct Answer
-    }
-]
-```
-GIVEN I am taking a code quiz
-
-WHEN I click the `start button`
-```
-    function startGame (){
-
-    }
-```
-    `start button` . addEventListener("click", function() {});
-
-THEN a timer starts and I am presented with a question
-```
-    * set starting score = 75
-
-    * Start the interval to begin the score countdown.
-
-    * Present the question = create new html elements for my question content
-
-        > Set the #question div's innerHTML = "";
-        > Append a H2 for the question text
-        > Append a new button for each choice
-
-        > var button = document.createElement("button")
-        > button.textContent = questionText
-        > button.setAttribute("data-answer", questionText)
-
-WHEN I answer a question
-
-* When the user clicks one of my answer buttons
-
-WHEN I answer a question incorrectly
-
-    event.target.matches("button")
-
-    > var clickButtoncontent = event.target.textContent;
-    > var clickButtonValue = event.target.getAttribute("data-answer")
-
-    > the question is correct with clickButtonValue == question[pointer].answer
-
-THEN time is subtracted from the clock
-
-    > subtract points from my current score
-
-THEN I am presented with another question
-
-* Increase our pointer by 1
-
-* Present the next question
-
-WHEN all questions are answered or the timer reaches 0
-
-
-
-THEN the game is over
-    > clearInterval ( interval )
-    > Clear out current question or hide the #question element
-    > Show our result form for getting the user's initials
-
-WHEN the game is over
-THEN I can save my initials and score
-
-    > ON my initial form "submit"
-
-        > var highscore = [];
-        > Get the currently saved highscores out localStorage.getItem("highscores").
-        > if(stored high score) highscores = JSON.parse(stored high score)
-        > else highscore = [];
-        > Create a new list
-        > Get the value of the initial's input
-        > Append a object with the initial's and score
-        > Store our score in local storage
-*/
