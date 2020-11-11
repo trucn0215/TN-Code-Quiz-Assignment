@@ -87,17 +87,17 @@ var timeEl = document.getElementById("timer");
 
 
 // Varible for Button functioning
-var startBtn = document.getElementById("startBtn")
-var submitBtn = document.querySelector("#submit")
-// var goBackBtn = document.querySelector("#backBtn")
-var clearBtn = document.querySelector("#clearScoreBtn")
+var startBtn = document.getElementById("startBtn");
+var submitBtn = document.querySelector("#submit");
+var goBackBtn = document.querySelector("#backBtn");
+var clearBtn = document.querySelector("#clearScoreBtn");
 
 // Click buttons
-startBtn.addEventListener("click", startQuiz)
+startBtn.addEventListener("click", startQuiz);
 answerEl.addEventListener("click", nextQuestion);
-submitBtn.addEventListener("click", submitResult)
-// goBackBtn.addEventListener("click", goBack)
-clearBtn.addEventListener("click", clearScore)
+submitBtn.addEventListener("click", submitResult);
+goBackBtn.addEventListener("click", goBack);
+clearBtn.addEventListener("click", clearScore);
 
 var interval;
 var totalTime = 5; // set the total time = 75 seconds
@@ -238,14 +238,12 @@ function afterQuizResult() {
 
 //Go back to start the quiz again function
 function goBack() {
-    document.getElementById("afterQuiz").classList.add("hidden");
-    document.getElementById("startingPage").classList.remove("hidden");
-    // startQuiz();
+    location.reload(); // reload the whole page and start over again.
 }
 
 //clear Scores function
 function clearScore() {
-    for (i=0; i < localStorage.length; i++){
+    for (i = 0; i < localStorage.length; i++) {
         scoreList.remove();
         localStorage.clear();
     }
